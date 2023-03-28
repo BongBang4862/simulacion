@@ -4,6 +4,10 @@
 	<title>Registro de Simuladores</title>
 </head>
 <body>
+	<?php 
+    	include 'consultas/verificacion.php';
+
+	 ?>
 	<h1>Registro de Simuladores</h1>
 	<form action="consultas/procesar_simulador.php" method="post">
 		<label for="nombre_simulador">Nombre del Simulador:</label>

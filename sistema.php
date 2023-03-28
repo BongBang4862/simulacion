@@ -5,14 +5,9 @@
   <title>Inicio de sesión</title>
 </head>
 <body>
+ 
   <?php
-    include 'consultas/lista_alumnos.php';
-    session_start();
-
-    if (!isset($_SESSION['nombre_usuario'])) {
-      header('Location: index.php');
-      exit;
-    }
+    include 'consultas/verificacion.php';
 
     // Si hay una sesión iniciada, muestra el contenido de la página principal
     echo "Bienvenido " . $_SESSION['nombre_usuario'] . "! Aquí está el contenido de la página principal.";
@@ -21,6 +16,7 @@
 
   <a href="registrar_alumno.php"> Registrar Alumno</a>
   <a href="registrar_simulador.php"> Registrar Simulador</a>
+  <a href="crear_evaluacion.php"> Crear Evaluaciones</a>
 
   <a href="consultas/logout.php"> Salir</a>
 
