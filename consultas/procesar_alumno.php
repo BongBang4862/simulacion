@@ -1,14 +1,6 @@
 <?php
 // Conexión a la base de datos
-$host = 'localhost';
-$usuario = 'root';
-$password = '';
-$bd = 'simulacion';
-
-$conexion = mysqli_connect($host, $usuario, $password, $bd);
-if (!$conexion) {
-	die('Error de conexión: ' . mysqli_connect_error());
-}
+include 'conexion.php';
 
 // Obtener los datos ingresados en el formulario y limpiarlos
 $nombre_completo = mysqli_real_escape_string($conexion, $_POST['nombre_completo']);

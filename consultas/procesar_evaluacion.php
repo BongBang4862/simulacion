@@ -1,14 +1,6 @@
 <?php
 // Conexión a la base de datos
-$host = 'localhost';
-$usuario = 'root';
-$password = '';
-$bd = 'simulacion';
-
-$conexion = mysqli_connect($host, $usuario, $password, $bd);
-if (!$conexion) {
-  die('Error de conexión: ' . mysqli_connect_error());
-}
+include 'conexion.php';
 
 // Obtener los datos ingresados en el formulario y limpiarlos
 $titulo = mysqli_real_escape_string($conexion, $_POST['titulo']);
@@ -29,9 +21,9 @@ if (!mysqli_query($conexion, $sql)) {
 $examen_id = mysqli_insert_id($conexion);
 
 // Dividir las preguntas en un arreglo y eliminar espacios en blanco
-$preguntas = explode("\n\n", $preguntas);
+$preguntas = explode("\\r\\n", $preguntas);
 $preguntas = array_map('trim', $preguntas);
-
+echo '<script>console.log(' . json_encode($preguntas) . ');</script>';
 // Recorrer el arreglo de preguntas y registrar cada una
 foreach ($preguntas as $pregunta) {
   // Crear la consulta SQL para registrar la pregunta
@@ -45,4 +37,5 @@ foreach ($preguntas as $pregunta) {
 mysqli_close($conexion);
 
 echo 'El examen se ha registrado correctamente';
+header('Location: ../sistema.php')
 ?>
