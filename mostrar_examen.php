@@ -27,7 +27,7 @@ echo "</ul>";
 
 // Formulario para agregar preguntas
 echo "<h3>Agregar pregunta</h3>";
-echo "<form action='agregar_pregunta.php' method='POST'>";
+echo "<form action='consultas/agregar_pregunta.php' method='POST'>";
 echo "<input type='hidden' name='examen_id' value='" . $examen_id . "'>";
 echo "<label for='pregunta'>Pregunta:</label>";
 echo "<textarea name='pregunta' id='pregunta'></textarea>";
@@ -36,7 +36,7 @@ echo "</form>";
 
 // Formulario para borrar preguntas
 echo "<h3>Borrar pregunta</h3>";
-echo "<form action='borrar_pregunta.php' method='POST'>";
+echo "<form action='consultas/borrar_pregunta.php' method='POST'>";
 echo "<input type='hidden' name='examen_id' value='" . $examen_id . "'>";
 echo "<label for='pregunta_id'>Pregunta:</label>";
 echo "<select name='pregunta_id' id='pregunta_id'>";
