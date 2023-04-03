@@ -8,7 +8,7 @@
  
   <?php
     include 'consultas/verificacion.php';
-
+    include 'consultas/lista_alumnos.php';
     // Si hay una sesión iniciada, muestra el contenido de la página principal
     echo "Bienvenido " . $_SESSION['nombre_usuario'] . "! Aquí está el contenido de la página principal.";
 

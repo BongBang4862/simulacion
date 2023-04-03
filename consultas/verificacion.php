@@ -1,5 +1,4 @@
  <?php
-    include 'consultas/lista_alumnos.php';
     session_start();
 
     if (!isset($_SESSION['nombre_usuario'])) {
