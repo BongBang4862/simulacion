@@ -1,4 +1,4 @@
-<div class="modal fade" id="modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade" id="modalAgregarReserva" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
           <div class="modal-header">
@@ -26,11 +26,21 @@
             </div>
             <div class="form-group">
                 <label for="inputHoraInicio">Hora de inicio</label>
-                <input type="time" class="form-control" id="inputHoraInicio">
+                <select class="form-control" id="selectSimulador">
+                    <option value="13:00">13:00</option>
+                    <option value="15:00">15:00</option>
+                    <option value="17:00">17:00</option>
+                    <option value="19:00">19:00</option>
+                </select>
             </div>
             <div class="form-group">
                 <label for="inputHoraFinal">Hora de finalización</label>
-                <input type="time" class="form-control" id="inputHoraFinal">
+                 <select class="form-control" id="selectSimulador">
+                    <option value="15:00">15:00</option>
+                    <option value="17:00">17:00</option>
+                    <option value="19:00">19:00</option>
+                    <option value="21:00">21:00</option>
+                </select>
             </div>
           </div>
           <div class="modal-footer">
