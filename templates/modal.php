@@ -26,7 +26,7 @@
             </div>
             <div class="form-group">
                 <label for="inputHoraInicio">Hora de inicio</label>
-                <select class="form-control" id="selectSimulador">
+                <select class="form-control" id="inputHoraInicio">
                     <option value="13:00">13:00</option>
                     <option value="15:00">15:00</option>
                     <option value="17:00">17:00</option>
@@ -35,7 +35,7 @@
             </div>
             <div class="form-group">
                 <label for="inputHoraFinal">Hora de finalización</label>
-                 <select class="form-control" id="selectSimulador">
+                 <select class="form-control" id="inputHoraFinal">
                     <option value="15:00">15:00</option>
                     <option value="17:00">17:00</option>
                     <option value="19:00">19:00</option>

@@ -5,15 +5,14 @@ include('conexion.php');
 // Obtener datos de la petición AJAX
 $simulador = $_POST['simulador'];
 $fecha = $_POST['fecha'];
-$horaInicio = $_POST['hora_inicio'];
-$horaFinal = $_POST['hora_final'];
+$horaInicio = $_POST['horaInicio'];
+$horaFinal = $_POST['horaFinal'];
 
-echo $simulador;
 // Consultar la base de datos para ver si el simulador está disponible en la fecha y hora seleccionadas
-$sql = "SELECT COUNT(*) AS num_reservas FROM reservas_simuladores WHERE simulador_id = '$simulador' AND fecha = '$fecha' AND ((hora_inicio <= '$horaInicio' AND hora_final >= '$horaInicio') OR ($hora_inicio <= '$horaFinal' AND hora_final >= '$horaFinal'))";
+$sql = "SELECT COUNT(*) AS num_reservas FROM reservas_simuladores WHERE simulador_id = '$simulador' AND fecha = '$fecha' AND ((hora_inicio <= '$horaInicio' AND hora_final >= '$horaInicio') OR (hora_inicio <= '$horaFinal' AND hora_final >= '$horaFinal'))";
 $result = mysqli_query($conexion, $sql);
 $row = mysqli_fetch_assoc($result);
-$count = $row['count'];
+$count = $row['num_reservas'];
 
 // Devolver respuesta en formato JSON
 if ($count == 0) {

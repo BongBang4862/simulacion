@@ -58,7 +58,8 @@ $(document).ready(function() {
                 horaFinal: horaFinal
             },
             success: function(response) {
-                if (response == 'disponible') {
+                alert(response);
+                if (response.disponible==true) {
                     // Si el simulador está disponible, agregar la reserva a la base de datos
                     $.ajax({
                         url: 'consultas/guardar_reserva.php',
@@ -82,8 +83,6 @@ $(document).ready(function() {
                         }
                     });
                 } else {
-                    console.log(response);
-                    
                     alert('El simulador no está disponible en la fecha y hora seleccionadas');
                 }
             }
