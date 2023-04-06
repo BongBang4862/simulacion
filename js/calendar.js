@@ -58,8 +58,9 @@ $(document).ready(function() {
                 horaFinal: horaFinal
             },
             success: function(response) {
-                alert(response);
-                if (response.disponible==true) {
+                var parsedResponse = JSON.parse(response);
+                console.log(parsedResponse.disponible);
+                if (parsedResponse.disponible) {
                     // Si el simulador está disponible, agregar la reserva a la base de datos
                     $.ajax({
                         url: 'consultas/guardar_reserva.php',
@@ -72,7 +73,9 @@ $(document).ready(function() {
                             horaFinal: horaFinal
                         },
                         success: function(response) {
-                            if (response == 'exito') {
+                            console.log(response);
+
+                            if (parsedResponse) {
                                 // Si se agrega la reserva correctamente, actualizar el calendario
                                 $('#calendar').fullCalendar('refetchEvents');
                                 // Cerrar el formulario modal
