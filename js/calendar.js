@@ -1,5 +1,20 @@
 $(document).ready(function() {
     // Carga el calendario
+      $.ajax({
+        url: 'consultas/obtener_simuladores.php',
+        dataType: 'json',
+        success: function(simuladores) {
+          // Procesar los datos recibidos
+           var select = $('#selectSimulador');
+            for (var i = 0; i < simuladores.length; i++) {
+                select.append('<option value="' + simuladores[i].id + '">' + simuladores[i].nombre_simulador + '</option>');
+            }
+        },
+        error: function() {
+          alert('Error al cargar los simuladores');
+        }
+      });
+
     $('#calendar').fullCalendar({
         header: {
             left: 'prev,next today',
@@ -35,13 +50,21 @@ $(document).ready(function() {
         },
         editable: true,
         eventLimit: true,
-        events: 'consultas/eventos.php'
+        events: 'consultas/eventos.php',
+        eventColor: 'color'
     });
+
+    function cargarSimuladores() {
+      // Hacer la petición AJAX
+    
+    };
+
 
     // Agrega la reserva cuando se hace clic en el botón "Guardar reserva" del modal
     $('#btnGuardarReserva').click(function() {
         // Obtener los valores del formulario modal
         var nombre = $('#inputNombre').val();
+        var alumno_id = $('#alumno_id').val();
         var simulador = $('#selectSimulador').val();
         var fecha = $('#inputFecha').val();
         var horaInicio = $('#inputHoraInicio').val();
@@ -67,6 +90,7 @@ $(document).ready(function() {
                         type: 'POST',
                         data: {
                             nombre: nombre,
+                            alumno_id: alumno_id,
                             simulador: simulador,
                             fecha: fecha,
                             horaInicio: horaInicio,

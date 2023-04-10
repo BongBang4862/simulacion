@@ -3,7 +3,7 @@
 include('conexion.php');
 
 // Consulta de las reservas
-$sql = "SELECT rs.id, a.nombre_completo, s.nombre_simulador, rs.fecha, rs.hora_inicio, rs.hora_final FROM reservas_simuladores rs INNER JOIN alumnos a ON rs.alumno_id = a.id INNER JOIN simuladores s ON rs.simulador_id = s.id";
+$sql = "SELECT rs.id, a.nombre_completo, s.nombre_simulador, s.color, rs.fecha, rs.hora_inicio, rs.hora_final FROM reservas_simuladores rs INNER JOIN alumnos a ON rs.alumno_id = a.id INNER JOIN simuladores s ON rs.simulador_id = s.id";
 $result = mysqli_query($conexion, $sql);
 
 // Formateo de los datos en formato JSON
@@ -14,6 +14,7 @@ while ($row = mysqli_fetch_assoc($result)) {
     $event['title'] = $row['nombre_completo'] . ' - ' . $row['nombre_simulador'];
     $event['start'] = $row['fecha'] . 'T' . $row['hora_inicio'];
     $event['end'] = $row['fecha'] . 'T' . $row['hora_final'];
+    $event['color'] = $row['color'];
     $events[] = $event;
 }
 echo json_encode($events);

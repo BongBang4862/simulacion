@@ -10,6 +10,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.10.2/fullcalendar.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.10.2/locale/es.min.js"></script>
+    <script src="js/calendar.js" type="text/javascript"></script>
 </head>
 <body>
     <?php
@@ -17,7 +18,6 @@
     ?>
     <div id="calendar"></div>
 
-    <script src="js/calendar.js" type="text/javascript"></script>
     
 </body>
 </html>

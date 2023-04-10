@@ -9,14 +9,13 @@
             <!-- Aquí añade los campos que necesites para generar una reserva, por ejemplo: -->
             <div class="form-group">
                 <label for="inputNombre">Nombre completo</label>
-                <input type="text" class="form-control" id="inputNombre" placeholder="Ingresa tu nombre completo">
+                <input type="text" class="form-control" value="<?php echo $_GET['name']; ?>" id="inputNombre" placeholder="Ingresa tu nombre completo">
+                <input type="hidden" id="alumno_id" name="alumno_id" value="<?php echo $_GET['alumno_id']; ?>">
             </div>
             <div class="form-group">
                 <label for="selectSimulador">Simulador</label>
-                <select class="form-control" id="selectSimulador">
-                    <option value="1">Simulador 1</option>
-                    <option value="2">Simulador 2</option>
-                    <option value="3">Simulador 3</option>
+                <select  class="form-control" id="selectSimulador">
+                    
                     <!-- Aquí añade todas las opciones de simuladores disponibles -->
                 </select>
             </div>

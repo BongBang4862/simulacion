@@ -32,6 +32,7 @@
       </tr>
     </thead>
     <tbody>
+
       <?php
         // Mostrar cada fila de la tabla de alumnos
         while ($fila = mysqli_fetch_assoc($resultado)) {
@@ -41,7 +42,7 @@
           echo "<td>" . $fila['codigo_curso'] . "</td>";
           echo "<td>" . $fila['fecha_alta'] . "</td>";
           echo "<td>";
-          echo "<a href='registrar_simulacion.php?id=" . $fila['id'] . "'>Registrar simulación</a>";
+          echo "<a href='calendar.php?alumno_id=" . $fila['id'] . "&name=". $fila['nombre_completo'] ."'>Registrar simulación</a>";
           echo " | ";
           echo "<a href='registrar_terreno.php?id=" . $fila['id'] . "'>Registrar terreno de grúa horquilla</a>";
           echo "</td>";
