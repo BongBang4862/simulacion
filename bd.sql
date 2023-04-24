@@ -24,6 +24,7 @@ CREATE TABLE simuladores (
   id INT NOT NULL AUTO_INCREMENT,
   nombre_simulador VARCHAR(50) NOT NULL,
   detalle TEXT,
+  color VARCHAR(10) NOT NULL DEFAULT '#ffffff'
   PRIMARY KEY (id)
 );
 
@@ -55,20 +56,11 @@ CREATE TABLE reservas_simuladores (
 );
 
 
+-- Modificación en la tabla administradores
+ALTER TABLE administradores ADD rol ENUM('administrador', 'secretaria','instructor') NOT NULL DEFAULT 'instructor';
 
-INSERT INTO administradores (nombre, apellido,password, email)
-VALUES ('Luis Francisco','Cordova Olavarria', 'password123', 'juan@example.com');
-INSERT INTO alumnos (nombre_completo, rut, codigo_curso, fecha_alta)
-VALUES ('Maria Gomez Perez', '12345678-9', 'CI1234', '2022-01-15');
-INSERT INTO simuladores (nombre_simulador, detalle)
-VALUES ('Simulador de Vuelo', 'Camion de Extraccion y Cargador Frontal');
-INSERT INTO examenes (titulo)
-VALUES ('Examen de Matemáticas');
-INSERT INTO preguntas (pregunta, examen_id)
-VALUES ('¿Cuál es el resultado de 2 + 2?', 1);
+-- Modificación en la tabla alumnos
+ALTER TABLE alumnos ADD activo BOOLEAN NOT NULL DEFAULT true;
 
-
-INSERT INTO reservas_simuladores (alumno_id, simulador_id, fecha, hora_inicio,hora_final)
-VALUES (1, 1, '2023-04-01', '13:00:00','15:00:00');
-INSERT INTO reservas_simuladores (alumno_id, simulador_id, fecha, hora_inicio,hora_final)
-VALUES (1, 1, '2023-04-01', '15:00:00','17:00:00');
+-- Modificación en la tabla reservas_simuladores
+ALTER TABLE reservas_simuladores ADD cancelada BOOLEAN NOT NULL DEFAULT false;
